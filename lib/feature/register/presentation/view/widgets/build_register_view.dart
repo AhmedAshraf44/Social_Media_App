@@ -122,6 +122,7 @@ class BuildRegisterView extends StatelessWidget {
                   height: 8,
                 ),
                 CustomTextFormField(
+                  keyboardType: TextInputType.phone,
                   controller: cubit.phoneController,
                   validator: (phone) {
                     if (phone?.isEmpty ?? true) {

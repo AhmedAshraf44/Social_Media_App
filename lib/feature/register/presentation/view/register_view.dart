@@ -1,6 +1,9 @@
+import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../../../core/functions/show_toast.dart';
 import '../manger/cubit/register_cubit.dart';
+import '../manger/cubit/register_state.dart';
 import 'widgets/build_register_view.dart';
 
 class RegisterView extends StatelessWidget {
@@ -13,24 +16,23 @@ class RegisterView extends StatelessWidget {
         create: (context) => RegisterCubit(),
         child: BlocConsumer<RegisterCubit, RegisterState>(
           listener: (context, state) {
-            // if (state is RegisterSuccessState) {
-            //   {
-            //     if (state.model.status == false) {
-            //       showToast(text: state.model.message!, color: Colors.amber);
-            //     } else {
-            //       showToast(text: state.model.message!, color: Colors.green);
-            //       CacheHelper.setData(
-            //           key: 'token', value: state.model.data!.token);
-            //       token = state.model.data!.token;
-            //       GoRouter.of(context).push(AppRouter.kHomeLayoutView);
-            //     }
-            //   }
-            // } else if (state is RegisterFailureState) {
-            //   showToast(text: state.errorMessage, color: Colors.red);
-            // }
+            if (state is RegisterSuccessState) {
+              showToast(
+                  text: 'Registration has been completed successfully.',
+                  color: Colors.green);
+              // uId =
+            } else if (state is RegisterFailureState) {
+              showToast(text: state.errorMessage, color: Colors.red);
+            }
           },
           builder: (context, state) {
-            return BuildRegisterView(cubit: RegisterCubit.get(context));
+            return ConditionalBuilder(
+              condition: state is! RegisterLoadingState,
+              builder: (context) =>
+                  BuildRegisterView(cubit: RegisterCubit.get(context)),
+              fallback: (context) =>
+                  const Center(child: CircularProgressIndicator()),
+            );
           },
         ),
       ),

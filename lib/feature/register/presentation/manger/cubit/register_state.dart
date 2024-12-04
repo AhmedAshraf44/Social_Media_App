@@ -1,7 +1,5 @@
-part of 'register_cubit.dart';
-
-sealed class RegisterState {
-  const RegisterState();
+abstract class RegisterState {
+  RegisterState();
 }
 
 final class RegisterInitialState extends RegisterState {}
@@ -17,7 +15,7 @@ class RegisterSuccessState extends RegisterState {
 class RegisterFailureState extends RegisterState {
   final String errorMessage;
 
-  const RegisterFailureState({required this.errorMessage});
+  RegisterFailureState({required this.errorMessage});
 }
 
 class RegisterChangeIconPasswordState extends RegisterState {}

@@ -13,7 +13,8 @@ class CustomTextFormField extends StatelessWidget {
       this.onChanged,
       this.onFieldSubmitted,
       this.controller,
-      this.obscureText = false});
+      this.obscureText = false,
+      this.keyboardType = TextInputType.text});
   final String? Function(String?)? validator;
   final IconData prefixIcon;
   final Widget? suffixIcon;
@@ -22,9 +23,11 @@ class CustomTextFormField extends StatelessWidget {
   final void Function(String)? onFieldSubmitted;
   final TextEditingController? controller;
   final bool? obscureText;
+  final TextInputType? keyboardType;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      keyboardType: keyboardType,
       obscureText: obscureText!,
       controller: controller,
       onChanged: onChanged,

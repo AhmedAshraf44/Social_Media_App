@@ -18,4 +18,18 @@ class RegisterFailureState extends RegisterState {
   RegisterFailureState({required this.errorMessage});
 }
 
+class UserCreateLoadingState extends RegisterState {}
+
+class UserCreateSuccessState extends RegisterState {
+  final String? uId;
+
+  UserCreateSuccessState({required this.uId});
+}
+
+class UserCreateFailureState extends RegisterState {
+  final String errorMessage;
+
+  UserCreateFailureState({required this.errorMessage});
+}
+
 class RegisterChangeIconPasswordState extends RegisterState {}

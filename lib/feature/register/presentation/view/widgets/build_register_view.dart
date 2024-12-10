@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:social_app/core/utils/app_router.dart';
+import '../../../../../constants.dart';
 import '../../../../../core/utils/app_styles.dart';
 import '../../../../../core/utils/widgets/custom_button.dart';
 import '../../../../../core/utils/widgets/custom_text_form_field.dart';
@@ -153,9 +156,28 @@ class BuildRegisterView extends StatelessWidget {
                     }
                   },
                 ),
-                const SizedBox(
-                  height: 15,
-                ),
+                // const SizedBox(
+                //   height: 15,
+                // ),
+                // Row(
+                //   mainAxisAlignment: MainAxisAlignment.center,
+                //   children: [
+                //     const Text(
+                //       'Do have an account?',
+                //       style: AppStyles.textStyle14,
+                //     ),
+                //     TextButton(
+                //       onPressed: () {
+                //         GoRouter.of(context).push(AppRouter.router(initialRoute: '/'));
+                //       },
+                //       child: Text(
+                //         'Login',
+                //         style: AppStyles.textStyle16regular
+                //             .copyWith(color: kPrimaryColor),
+                //       ),
+                //     ),
+                //   ],
+                // ),
               ],
             ),
           ),

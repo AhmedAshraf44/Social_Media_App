@@ -27,7 +27,7 @@ class LoginCubit extends Cubit<LoginState> {
         password: passwordController.text,
       );
       log('${credential.user?.email}');
-      emit(LoginSuccessState());
+      emit(LoginSuccessState(uId: credential.user?.uid));
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
         emit(LoginFailureState(errorMessage: 'No user found for that email.'));

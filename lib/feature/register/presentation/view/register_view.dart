@@ -1,6 +1,10 @@
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
+import 'package:social_app/core/utils/app_router.dart';
+import 'package:social_app/core/utils/cache_helper.dart';
+import '../../../../constants.dart';
 import '../../../../core/functions/show_toast.dart';
 import '../manger/cubit/register_cubit.dart';
 import '../manger/cubit/register_state.dart';
@@ -16,11 +20,13 @@ class RegisterView extends StatelessWidget {
         create: (context) => RegisterCubit(),
         child: BlocConsumer<RegisterCubit, RegisterState>(
           listener: (context, state) {
-            if (state is RegisterSuccessState) {
+            if (state is UserCreateSuccessState) {
+              CacheHelper.setData(key: 'uId', value: state.uId);
+              uId = state.uId ?? '';
+              GoRouter.of(context).push(AppRouter.kSocialLayoutView);
               showToast(
                   text: 'Registration has been completed successfully.',
                   color: Colors.green);
-              // uId =
             } else if (state is RegisterFailureState) {
               showToast(text: state.errorMessage, color: Colors.red);
             }

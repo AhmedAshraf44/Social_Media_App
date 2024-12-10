@@ -6,7 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:social_app/feature/register/presentation/manger/cubit/register_state.dart';
 
 import '../../../../../constants.dart';
-import '../../../../login/data/model/login_model.dart';
+import '../../../../login/data/model/user_data_model.dart';
 
 class RegisterCubit extends Cubit<RegisterState> {
   RegisterCubit() : super(RegisterInitialState());
@@ -33,14 +33,10 @@ class RegisterCubit extends Cubit<RegisterState> {
         password: passwordController.text,
       );
       //credential.credential.
-      UserDataModel(
-          name: nameController.text,
-          email: emailController.text,
-          phone: phoneController.text,
-          uId: credential.user!.uid);
-      log('${credential.user?.email}');
-      log('${credential.user?.uid}');
-      emit(RegisterSuccessState());
+      await userCreate(uId: credential.user!.uid);
+      // log('${credential.user?.email}');
+      // log('${credential.user?.uid}');
+      // emit(RegisterSuccessState());
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
         emit(RegisterFailureState(
@@ -56,21 +52,38 @@ class RegisterCubit extends Cubit<RegisterState> {
     } catch (e) {
       emit(RegisterFailureState(errorMessage: e.toString()));
     }
-
-    createUser() {
-      FirebaseFirestore.instance.collection(kUsers).doc();
-    }
-    // emit(RegisterLoadingState());
-    // var result = await _registerRepo.registerUser(
-    //   name: nameController.text,
-    //   email: emailController.text,
-    //   password: passwordController.text,
-    //   phone: phoneController.text,
-    // );
-
-    // result.fold(
-    //     (failure) =>
-    //         emit(RegisterFailureState(errorMessage: failure.errorMessage)),
-    //     (data) => emit(RegisterSuccessState(model: data)));
   }
+
+  Future<void> userCreate({required String uId}) async {
+    // emit(UserCreateLoadingState());
+    try {
+      UserDataModel model = UserDataModel(
+        name: nameController.text,
+        email: emailController.text,
+        phone: phoneController.text,
+        uId: uId,
+        isEmailVerified: false,
+      );
+      await FirebaseFirestore.instance
+          .collection(kUsers)
+          .doc(uId)
+          .set(model.toJson());
+      emit(UserCreateSuccessState(uId: uId));
+    } catch (e) {
+      log(e.toString());
+      emit(UserCreateFailureState(errorMessage: e.toString()));
+    }
+  }
+  // emit(RegisterLoadingState());
+  // var result = await _registerRepo.registerUser(
+  //   name: nameController.text,
+  //   email: emailController.text,
+  //   password: passwordController.text,
+  //   phone: phoneController.text,
+  // );
+
+  // result.fold(
+  //     (failure) =>
+  //         emit(RegisterFailureState(errorMessage: failure.errorMessage)),
+  //     (data) => emit(RegisterSuccessState(model: data)));
 }

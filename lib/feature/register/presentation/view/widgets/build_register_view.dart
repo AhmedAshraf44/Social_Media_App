@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-import 'package:social_app/core/utils/app_router.dart';
-import '../../../../../constants.dart';
 import '../../../../../core/utils/app_styles.dart';
 import '../../../../../core/utils/widgets/custom_button.dart';
 import '../../../../../core/utils/widgets/custom_text_form_field.dart';
@@ -55,11 +52,6 @@ class BuildRegisterView extends StatelessWidget {
                       return null;
                     }
                   },
-                  // onFieldSubmitted: (value) async {
-                  //   if (cubit.formKey.currentState!.validate()) {
-                  //     await cubit.loginUser();
-                  //   }
-                  // },
                   prefixIcon: Icons.person,
                   hintText: 'name',
                 ),
@@ -80,11 +72,6 @@ class BuildRegisterView extends StatelessWidget {
                       return null;
                     }
                   },
-                  // onFieldSubmitted: (value) async {
-                  //   if (cubit.formKey.currentState!.validate()) {
-                  //     await cubit.loginUser();
-                  //   }
-                  // },
                   prefixIcon: Icons.email_outlined,
                   hintText: 'namaemail@email.com',
                 ),
@@ -105,11 +92,6 @@ class BuildRegisterView extends StatelessWidget {
                       return null;
                     }
                   },
-                  // onFieldSubmitted: (value) async {
-                  //   if (cubit.formKey.currentState!.validate()) {
-                  //     await cubit.loginUser();
-                  //   }
-                  // },
                   prefixIcon: Icons.lock_open,
                   hintText: '**** **** **** ',
                   suffixIcon: IconButton(
@@ -134,11 +116,6 @@ class BuildRegisterView extends StatelessWidget {
                       return null;
                     }
                   },
-                  // onFieldSubmitted: (value) async {
-                  //   if (cubit.formKey.currentState!.validate()) {
-                  //     await cubit.loginUser();
-                  //   }
-                  // },
                   prefixIcon: Icons.phone,
                   hintText: 'phone',
                 ),

@@ -2,7 +2,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../feature/login/presentation/view/login_view.dart';
 import '../../feature/register/presentation/view/register_view.dart';
-import '../../feature/social_layout/presentation/view/social_layout.dart';
+import '../../feature/layout/presentation/view/social_layout.dart';
 
 abstract class AppRouter {
   static const kRegisterView = '/RegisterView';

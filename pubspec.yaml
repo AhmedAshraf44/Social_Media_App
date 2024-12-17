@@ -40,6 +40,7 @@ dependencies:
   flutter_bloc: ^8.1.6
   fluttertoast: ^8.2.8
   go_router: ^14.6.1
+  hexcolor: ^3.0.1
   shared_preferences: ^2.3.3
 
 dev_dependencies:
@@ -70,14 +71,11 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-    - family: Inter
+    - family: jannah
       fonts:
-        - asset: assets/fonts/Inter_18pt-Regular.ttf
-  #   - family: Trajan Pro
-  #     fonts:
-  #       - asset: fonts/TrajanPro.ttf
-  #       - asset: fonts/TrajanPro_Bold.ttf
-  #         weight: 700
-  #
+        - asset: assets/fonts/jannah.ttf
+    - family: IconBroken
+      fonts:
+        - asset: assets/fonts/icons.ttf
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package

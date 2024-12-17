@@ -15,7 +15,7 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
   var uId = CacheHelper.getData(key: 'uId');
-  print(uId);
+  // print(uId);
   late String initialRoute;
 
   if (uId == null) {
@@ -36,7 +36,9 @@ class SocialApp extends StatelessWidget {
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       routerConfig: AppRouter.router(initialRoute: initialRoute),
+      themeMode: ThemeMode.light,
       theme: appThemeData(),
+      darkTheme: appdarkThemeData(),
     );
   }
 }

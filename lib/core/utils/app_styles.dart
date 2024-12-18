@@ -29,7 +29,6 @@ class AppStyles {
   static const textStyle20 = TextStyle(
     fontSize: 20.0,
     fontWeight: FontWeight.bold,
-    color: Colors.black,
   );
 
   static const textStyle10Regular = TextStyle(

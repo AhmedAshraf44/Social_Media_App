@@ -27,8 +27,12 @@ class SocialCubit extends Cubit<SocialState> {
   int currentIndex = 0;
 
   void changeCurrentIndex(int index) {
-    currentIndex = index;
-    emit(SocialChangeBottomNavState());
+    if (index == 2) {
+      emit(SocialNewPostState());
+    } else {
+      currentIndex = index;
+      emit(SocialChangeBottomNavState());
+    }
   }
 
   // UserDataModel? model;

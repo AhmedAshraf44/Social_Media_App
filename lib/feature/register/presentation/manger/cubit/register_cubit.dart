@@ -41,11 +41,11 @@ class RegisterCubit extends Cubit<RegisterState> {
       if (e.code == 'weak-password') {
         emit(RegisterFailureState(
             errorMessage: 'The password provided is too weak.'));
-        print('The password provided is too weak.');
+        //print('The password provided is too weak.');
       } else if (e.code == 'email-already-in-use') {
         emit(RegisterFailureState(
             errorMessage: 'The account already exists for that email.'));
-        print('The account already exists for that email.');
+        //print('The account already exists for that email.');
       } else {
         emit(RegisterFailureState(errorMessage: e.message ?? 'error'));
       }

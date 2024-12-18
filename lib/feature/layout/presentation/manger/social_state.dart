@@ -6,6 +6,7 @@ final class SocialInitialState extends SocialState {}
 
 final class SocialChangeBottomNavState extends SocialState {}
 
+final class SocialNewPostState extends SocialState {}
 
 
 

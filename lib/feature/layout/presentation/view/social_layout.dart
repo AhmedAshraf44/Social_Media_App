@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
+import 'package:social_app/core/utils/app_router.dart';
 import 'package:social_app/core/utils/app_styles.dart';
 import 'package:social_app/core/utils/icon_broken.dart';
 import 'package:social_app/feature/layout/presentation/manger/social_cubit.dart';
@@ -13,7 +15,12 @@ class SocialLayoutView extends StatelessWidget {
     return BlocProvider(
       create: (context) => SocialCubit(),
       //..getUser(),
-      child: BlocBuilder<SocialCubit, SocialState>(
+      child: BlocConsumer<SocialCubit, SocialState>(
+        listener: (context, state) {
+          if (state is SocialNewPostState) {
+            GoRouter.of(context).push(AppRouter.kNewPostView);
+          }
+        },
         builder: (context, state) {
           var cubit = SocialCubit.get(context);
           return Scaffold(
@@ -22,6 +29,16 @@ class SocialLayoutView extends StatelessWidget {
                   cubit.titles[cubit.currentIndex],
                   style: AppStyles.textStyle20,
                 ),
+                actions: [
+                  IconButton(
+                    onPressed: () {},
+                    icon: const Icon(IconBroken.notification),
+                  ),
+                  IconButton(
+                    onPressed: () {},
+                    icon: const Icon(IconBroken.search),
+                  ),
+                ],
               ),
               bottomNavigationBar: BottomNavigationBar(
                 currentIndex: cubit.currentIndex,
@@ -36,6 +53,10 @@ class SocialLayoutView extends StatelessWidget {
                   BottomNavigationBarItem(
                     icon: Icon(IconBroken.chat),
                     label: 'Chats',
+                  ),
+                  BottomNavigationBarItem(
+                    icon: Icon(IconBroken.paperUpload),
+                    label: 'Post',
                   ),
                   BottomNavigationBarItem(
                     icon: Icon(IconBroken.user),

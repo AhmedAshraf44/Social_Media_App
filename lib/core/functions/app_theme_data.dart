@@ -25,24 +25,24 @@ ThemeData appThemeData() {
 
 ThemeData appdarkThemeData() {
   return ThemeData(
-    primarySwatch: Colors.deepOrange,
+    primarySwatch: Colors.blue,
     scaffoldBackgroundColor: HexColor('333739'),
     appBarTheme: AppBarTheme(
       titleSpacing: 20,
       backgroundColor: HexColor('333739'),
       elevation: 0,
-      titleTextStyle: const TextStyle(fontSize: 24),
+      titleTextStyle: const TextStyle(fontSize: 24, color: Colors.white),
       iconTheme: const IconThemeData(
         color: Colors.white,
       ),
       systemOverlayStyle: SystemUiOverlayStyle(
         statusBarColor: HexColor('333739'),
-        statusBarIconBrightness: Brightness.dark,
+        statusBarIconBrightness: Brightness.light,
       ),
     ),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
       backgroundColor: HexColor('333739'),
-      selectedItemColor: Colors.deepOrange,
+      selectedItemColor: kPrimaryColor,
       unselectedItemColor: Colors.grey,
       type: BottomNavigationBarType.fixed,
       elevation: 20,

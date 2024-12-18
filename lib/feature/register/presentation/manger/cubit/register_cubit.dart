@@ -63,6 +63,11 @@ class RegisterCubit extends Cubit<RegisterState> {
         phone: phoneController.text,
         uId: uId,
         isEmailVerified: false,
+        bio: 'write to bio ... ',
+        image:
+            "https://img.freepik.com/free-photo/pizza-pepperoni-table_140725-5396.jpg?t=st=1734548378~exp=1734551978~hmac=fafd69b8c4a7e341c173dd3d4ea53be7b6064341443000d5b651af2eb0ddb96a&w=996",
+        cover:
+            "https://img.freepik.com/free-photo/waist-up-shot-joyful-pretty-young-female-with-dark-hair-points-blank-screen-cell-phone-shows-space-your-advertisement_273609-24760.jpg?t=st=1734478222~exp=1734481822~hmac=6ea01fff03d8017a2689d062b1134f4fe1fae0dc2d8c146a40c5d69818aa02ae&w=996",
       );
       await FirebaseFirestore.instance
           .collection(kUsers)

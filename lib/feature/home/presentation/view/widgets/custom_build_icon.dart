@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../../../constants.dart';
 import '../../../../../core/utils/app_styles.dart';
 
 class CustomBuildIcon extends StatelessWidget {
@@ -33,7 +34,7 @@ class CustomBuildIcon extends StatelessWidget {
             Text(
               title,
               style: AppStyles.textStyle12.copyWith(
-                color: const Color(0xFFA7AAA7),
+                color: kSecondaryColor,
               ),
             ),
           ],

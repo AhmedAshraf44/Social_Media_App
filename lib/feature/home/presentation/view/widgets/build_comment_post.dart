@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:social_app/core/utils/app_styles.dart';
 import 'package:social_app/feature/home/presentation/view/widgets/custom_build_icon.dart';
 
+import '../../../../../constants.dart';
 import '../../../../../core/utils/icon_broken.dart';
 
 class BuildCommentPost extends StatelessWidget {
@@ -31,7 +32,7 @@ class BuildCommentPost extends StatelessWidget {
                   Text(
                     'write a comment ...',
                     style: AppStyles.textStyle10Regular.copyWith(
-                      color: const Color(0xFFA7AAA7),
+                      color: kSecondaryColor,
                     ),
                   ),
                 ],

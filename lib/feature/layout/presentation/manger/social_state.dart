@@ -8,14 +8,12 @@ final class SocialChangeBottomNavState extends SocialState {}
 
 final class SocialNewPostState extends SocialState {}
 
+class SocialLoadingState extends SocialState {}
 
+class SocialSuccessState extends SocialState {}
 
-// class SocialLayoutLoadingState extends SocialLayoutState {}
+class SocialFailureState extends SocialState {
+  final String errorMessage;
 
-// class SocialLayoutSuccessState extends SocialLayoutState {}
-
-// class SocialLayoutFailureState extends SocialLayoutState {
-//   final String errorMessage;
-
-//   SocialLayoutFailureState({required this.errorMessage});
-// }
+  SocialFailureState({required this.errorMessage});
+}

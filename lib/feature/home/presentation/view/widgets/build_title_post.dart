@@ -44,7 +44,7 @@ class BuildTitlePost extends StatelessWidget {
               Text(
                 'January 18, 2023 at 2:00 pm',
                 style: AppStyles.textStyle10.copyWith(
-                  color: const Color(0xFFA7AAA7),
+                  color: kSecondaryColor,
                 ),
               ),
             ],

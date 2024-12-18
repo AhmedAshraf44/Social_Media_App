@@ -13,8 +13,7 @@ class SocialLayoutView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => SocialCubit(),
-      //..getUser(),
+      create: (context) => SocialCubit()..getUser(),
       child: BlocConsumer<SocialCubit, SocialState>(
         listener: (context, state) {
           if (state is SocialNewPostState) {

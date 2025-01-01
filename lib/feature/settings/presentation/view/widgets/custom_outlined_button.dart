@@ -20,7 +20,7 @@ class CustomOutlinedButton extends StatelessWidget {
             shape: BeveledRectangleBorder(
               borderRadius: BorderRadius.circular(2),
             )),
-        onPressed: () {},
+        onPressed: onPressed,
         child: widget);
   }
 }

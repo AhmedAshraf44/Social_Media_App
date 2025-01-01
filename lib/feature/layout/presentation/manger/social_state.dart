@@ -17,3 +17,15 @@ class SocialFailureState extends SocialState {
 
   SocialFailureState({required this.errorMessage});
 }
+
+class SocialProfileImageSuccessState extends SocialState {}
+
+class SocialProfileImageErrorState extends SocialState {}
+
+class SocialCoverImageSuccessState extends SocialState {}
+
+class SocialCoverImageErrorState extends SocialState {}
+
+class SocialUploadProfileImageSuccessState extends SocialState {}
+
+class SocialUploadProfileImageErrorState extends SocialState {}

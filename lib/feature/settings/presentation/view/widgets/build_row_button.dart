@@ -8,8 +8,9 @@ import '../../../../../core/utils/icon_broken.dart';
 class BuildRowButton extends StatelessWidget {
   const BuildRowButton({
     super.key,
+    this.onPressedEdit,
   });
-
+  final void Function()? onPressedEdit;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -29,7 +30,7 @@ class BuildRowButton extends StatelessWidget {
             width: 5,
           ),
           CustomOutlinedButton(
-            onPressed: () {},
+            onPressed: onPressedEdit,
             widget: const Icon(
               IconBroken.edit,
               color: kPrimaryColor,

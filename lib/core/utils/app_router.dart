@@ -1,4 +1,5 @@
 import 'package:go_router/go_router.dart';
+import 'package:social_app/feature/edit_profile/presentation/view/edit_profile.dart';
 
 import '../../feature/login/presentation/view/login_view.dart';
 import '../../feature/new_post/presentation/view/new_post_view.dart';
@@ -9,6 +10,7 @@ abstract class AppRouter {
   static const kRegisterView = '/RegisterView';
   static const kSocialLayoutView = '/SocialLayoutView';
   static const kNewPostView = '/NewPostView';
+  static const kEditProfileView = '/EditProfileView';
 
   static GoRouter router({required String initialRoute}) {
     return GoRouter(initialLocation: initialRoute, routes: [
@@ -27,6 +29,10 @@ abstract class AppRouter {
       GoRoute(
         path: kNewPostView,
         builder: (context, state) => const NewPostView(),
+      ),
+      GoRoute(
+        path: kEditProfileView,
+        builder: (context, state) => const EditProfileView(),
       ),
     ]);
   }

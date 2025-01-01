@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../../../core/utils/widgets/build_image_post.dart';
-import '../../../../login/data/model/user_data_model.dart';
+import 'build_image_post.dart';
+import '../../../feature/login/data/model/user_data_model.dart';
 
 class BuildCoverProfile extends StatelessWidget {
   const BuildCoverProfile({
@@ -14,11 +14,11 @@ class BuildCoverProfile extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: SizedBox(
-        height: 200,
+        height: 190,
         child: Stack(
           children: [
             BuildImagePost(
-              image: userModel.image,
+              image: NetworkImage(userModel.image),
               borderRadius: const BorderRadius.only(
                   topLeft: Radius.circular(5), topRight: Radius.circular(5)),
             ),

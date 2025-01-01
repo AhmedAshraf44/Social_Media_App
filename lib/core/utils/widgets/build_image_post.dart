@@ -7,7 +7,7 @@ class BuildImagePost extends StatelessWidget {
     required this.image,
   });
   final BorderRadiusGeometry? borderRadius;
-  final String image;
+  final ImageProvider<Object> image;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -16,7 +16,7 @@ class BuildImagePost extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: borderRadius,
         image: DecorationImage(
-          image: NetworkImage(image),
+          image: image,
           fit: BoxFit.cover,
         ),
       ),
